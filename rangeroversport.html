@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeroRide</title>
+    <link rel="stylesheet" href="1.css">
+    <style>
+        .details-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 40px;
+        }
+
+
+        .carte img {
+            max-width: 100%;
+            max-height: 100%;
+            height: 400px;
+            width: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+            transform-origin: top;
+
+
+        }
+
+        .carte img:hover {
+            transform: scale(1.1);
+            cursor: zoom-in;
+        }
+
+        .carte {
+            background-color: white;
+            height: auto;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+
+        }
+
+        .infos {
+            margin-top: 20px;
+
+        }
+
+        .prop {
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #8886841f;
+        }
+
+          .reserve-form {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 900px) {
+            .details-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        
+
+        .confirm button{
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #0b3159;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .confirm button:hover {
+            background-color: rgba(120, 4, 4, 0.954);
+            cursor: pointer;
+            transform: scale(1.03);
+            }
+
+        .boutons {
+            margin-top: 50px;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .boutons a {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #0b3159;
+        }
+
+
+        .name {
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+            background-color: #371E1E;
+            color: white;
+        }
+
+
+        body {
+            background-color: white;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <header id="top">
+            <nav>
+                <div class="neroridelogo">
+                    <img src="logoNeroRide.png" alt="Neroride Logo">
+                </div>
+
+                <ul class="menu">
+                    <li><a href="index.html">accueil</a></li>
+                    <li><a href="nosvoitures.html">voitures</a></li>
+                    <li><a href="apropos.html">a propos</a></li>
+                    <li><a href="contact.html">contacts</a></li>
+                </ul>
+
+                <div class="recherche">
+                    <input type="text" id="search" placeholder="Rechercher...">
+                    <button type="button" onclick="searchCar()"> ➥ </button>
+                </div>
+                <script src="script.js"></script>
+            </nav>
+        <div class="titre">
+            <h1>Nos Voitures</h1>
+        </div>
+    </header>
+
+
+    <div class="details-container">
+        <div class="carte">
+            <img src="https://i.pinimg.com/736x/6c/a9/9e/6ca99e6fc722836ad890181bef9c1160.jpg" alt="Range Rover Sport">
+
+            <div class="infos">
+                <div class="name">
+                    <h1>Range Rover Sport</h1>
+                </div>
+
+                <div class="prop">
+                    <p>✧ Type de boîte : Automatique à 8 vitesses </p>
+                    <p>✧ Carburant : Essence</p>
+                    <p>✧ Places : 5</p>
+                </div>
+
+                <p>Le Range Rover Sport est un SUV de luxe alliant élégance, confort et capacités tout-terrain exceptionnelles. Il possède une suspension sophistiquée qui garantit une conduite douce sur route et hors route. L’intérieur est spacieux et luxueux, avec des matériaux de haute qualité et des technologies avancées pour le divertissement et la sécurité.</p>
+            </div>
+
+            <div class="boutons">
+                <a href="nosvoitures.html" class="details">← Retour</a>
+                <a href="#form" class="details">Réserver la voiture</a>
+            </div>
+        </div>
+
+
+        <div class="reserve-form" id="form">
+            <h2 style="font-family: 'DM Serif Display', serif";>Formulaire de Réservation</h2>
+
+            <form id="reservationForm">
+
+                <div class="form-group">
+                    <label>Prenom</label>
+                    <input type="text" id="prenom" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" id="nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Numéro de téléphone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Type de voiture</label>
+                    <select id="carType" required>
+                        <option value="">-- Choisir --</option>
+                        <option value="BMW M5">BMW M5</option>
+                        <option value="BWW X6">BWW X6</option>
+                        <optionn value="Mercedes-AMG E 63 S">Mercedes-AMG E 63 S</option>
+                        <option value="Mercedes-Maybach Classe S">Mercedes-Maybach Classe S</option>
+                        <option value="Porche Cayene Coupe">Porche Cayene Coupe</option>
+                        <option value="Range Rover Sport">Range Rover Sport</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Date de départ</label>
+                    <input type="date" id="startDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Date de retour</label>
+                    <input type="date" id="endDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Demandes spéciales</label>
+                    <textarea id="message" rows="4"></textarea>
+                </div>
+
+                <div class="confirm">
+                    <button type="submit" onclick="goBack()">Confirmer la réservation</button>
+                </div>
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+    <footer>
+        <div class="fin">
+            <div>
+                <h1>NeroRide</h1>
+                <p>Agence de location de voitures à Agadir pour les gens visitant la ville et en besoin de voitures à
+                    louer</p>
+            </div>
+            <div>
+                <h1>Services</h1>
+                <p>→ Location courte durée</p>
+                <p>→ Location longue durée</p>
+                <p>→ Assurance incluse</p>
+            </div>
+            <div>
+                <h1>Contact</h1>
+                <p>email : contact@NeroRide.ma</p>
+                <p>téléphone : 00 00 00 00 00</p>
+                <p>insta : agadir_NeroRide</p>
+                <p>facebook : NeroRide Agadir</p>
+            </div>
+        </div>
+        <h2 style="text-align: center;">&copy; 2026 NeroRide. Tous droits réservés</h2>
+    </footer>
+
+    <a href="#top" class="retour">
+        ↑
+    </a>
+
+    <script>
+        document.getElementById("reservationForm").addEventListener("submit",
+            function (e) {
+                e.preventDefault();
+                let prenom = document.getElementById("prenom").value;
+                let nom = document.getElementById("nom").value;
+                alert("Merci " + prenom + " " + nom + " ! Votre réservation a été envoyée ");
+            });
+        function goBack() {
+            window.history.back();
+
+        }
+    </script>
+
+</body>
+
+</html>
